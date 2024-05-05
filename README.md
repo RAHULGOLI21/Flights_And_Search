@@ -52,6 +52,10 @@ Once you've added your db config as listed above, go to the src folder from your
   Command to create Airplane Model i.e Airplanes table:
   npx sequelize model:generate --name Airplane --attributes modelNumber:String, capacity:Integer
 
+### Flight -> id, flightNumber, airplaneId, departureAirportId, arrivalAirportId, arrivalTime,departureTime, price, boardingGate, totalSeats
+  Command to create Flight Model i.e Flights table:
+  npx sequelize model:generate --name Flight --attributes flightNumber:String,airplaneId:integer,departureAirportId:integer,arrivalAirportId:integer,arrivalTime:Date,departureTime:Date,price:integer,boardingGate:String,totalSeats:integer
+
 ```
 To generate the seed files for any table , here is the example for aiports table:
  `npx sequelize seed:generate --name add-airports`

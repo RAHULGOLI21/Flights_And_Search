@@ -70,7 +70,6 @@ class CityRepository {
         try{
             if(filter.name)
             {
-                console.log("came to new fun--",filter.name);
                 const city = await City.findAll({
                     where : {
                         name : {
