@@ -5,7 +5,7 @@ Project Setup
 clone the project on your local
 Execute `npm install` on the same path as of your root directory of teh downloaded project
 Create a `.env` file in the root directory and add the following environment variable
-`PORT=3000`
+`PORT=3000` and `SYNC_DB=true` or `SYNC_DB=false` accordingly
 Inside the `src/config` folder create a new file `config.json` and then add the following piece of json
 
 ```
@@ -22,8 +22,9 @@ Inside the `src/config` folder create a new file `config.json` and then add the 
 
 Once you've added your db config as listed above, go to the src folder from your terminal and execute `npx sequelize db:create` and then execute
 `npx sequelize db:migrate`
-```
 
+
+```
 ## DB Design
   - Airplane Table
   - Flight
@@ -39,12 +40,20 @@ Once you've added your db config as listed above, go to the src folder from your
 ## Tables
 
 ### City -> id, name, created_at, updated_at
-```
-npx sequelize model:generate --name City --attributes name:String
-```
+  Command to create City Model i.e cities table:
+  npx sequelize model:generate --name City --attributes name:String
 
 ### Airport -> id, name, address, city_id, created_at, updated_at
     Relationship -> City has many airports and Airport belongs to a city (one to many)
+  Command to create Airport Model i.e airports table:
+  npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+  
 ```
-npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
-```
+To generate the seed files for any table , here is the example for aiports table:
+ `npx sequelize seed:generate --name add-airports`
+
+To feed all the seed files to tables:
+` npx sequelize db:seed:all`
+
+[Plural-Functions-syntax(which gets exposed after the db synchronization)](https://github.com/sequelize/sequelize/blob/main/packages/core/src/associations/has-many.ts#L157)
+[article-link-for-association-functions](https://medium.com/@tavilesa12/dealing-with-many-to-many-associations-in-sequelize-bddc34201b80)
