@@ -39,7 +39,12 @@ Once you've added your db config as listed above, go to the src folder from your
 ## Tables
 
 ### City -> id, name, created_at, updated_at
+```
+npx sequelize model:generate --name City --attributes name:String
+```
+
 ### Airport -> id, name, address, city_id, created_at, updated_at
     Relationship -> City has many airports and Airport belongs to a city (one to many)
 ```
 npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+```
