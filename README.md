@@ -47,7 +47,11 @@ Once you've added your db config as listed above, go to the src folder from your
     Relationship -> City has many airports and Airport belongs to a city (one to many)
   Command to create Airport Model i.e airports table:
   npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
-  
+
+### Airplane -> id, modelNumber, capacity, created_at, updated_at
+  Command to create Airplane Model i.e Airplanes table:
+  npx sequelize model:generate --name Airplane --attributes modelNumber:String, capacity:Integer
+
 ```
 To generate the seed files for any table , here is the example for aiports table:
  `npx sequelize seed:generate --name add-airports`
@@ -56,4 +60,6 @@ To feed all the seed files to tables:
 ` npx sequelize db:seed:all`
 
 [Plural-Functions-syntax(which gets exposed after the db synchronization)](https://github.com/sequelize/sequelize/blob/main/packages/core/src/associations/has-many.ts#L157)
+
+
 [article-link-for-association-functions](https://medium.com/@tavilesa12/dealing-with-many-to-many-associations-in-sequelize-bddc34201b80)
