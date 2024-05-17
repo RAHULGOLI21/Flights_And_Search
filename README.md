@@ -63,6 +63,9 @@ To generate the seed files for any table , here is the example for aiports table
 To feed all the seed files to tables:
 ` npx sequelize db:seed:all`
 
+To revert the specific migration:
+` db:migrate:undo --name <migration_file_name>`
+
 [Plural-Functions-syntax(which gets exposed after the db synchronization)](https://github.com/sequelize/sequelize/blob/main/packages/core/src/associations/has-many.ts#L157)
 
 
